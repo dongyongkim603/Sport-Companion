@@ -21,7 +21,7 @@ class ShowBookList extends Component {
                 })
             })
             .catch(err => {
-                console.log('Error from ShowBookList');
+                console.log(`Error from ShowBookList ${err}`);
             })
     };
 
@@ -45,7 +45,7 @@ class ShowBookList extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <br />
-                            <h2 className="display-4 text-center">Books List</h2>
+                            <h2 className="display-4 text-center">Current Fights</h2>
                         </div>
 
                         <div className="col-md-11">

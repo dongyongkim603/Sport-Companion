@@ -33,6 +33,8 @@ class CreateBook extends Component {
             publisher: this.state.publisher
         };
 
+        debugger
+
         axios
             .post('http://localhost:8082/api/books', data)
             .then(res => {
@@ -47,7 +49,8 @@ class CreateBook extends Component {
                 this.props.history.push('/');
             })
             .catch(err => {
-                console.log("Error in CreateBook!");
+                debugger
+                console.error(`Error in CreateBook! ${err}`);
             })
     };
 
