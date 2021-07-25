@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import BookCard from './BookCard';
+import ScheduleCard from './ScheduleCard';
 
-class ShowBookList extends Component {
+class Schedules extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            books: []
+            schedules: []
         };
     }
 
     componentDidMount() {
         axios
-            .get('http://localhost:8082/api/fightFriend')
+            .get('http://localhost:8082/api/schedules')
             .then(res => {
                 this.setState({
-                    books: res.data
+                    schedules: res.data
                 })
             })
             .catch(err => {
-                console.log('Error from ShowBookList');
+                console.log('Error from schedules');
             })
     };
 
     render() {
-        const books = this.state.books;
-        console.log("PrintBook: " + books);
-        let bookList;
+        const schedules = this.state.schedules;
+        console.log("schedules: " + schedules);
+        let scheduleList;
 
-        if (!books) {
-            bookList = "there is no book record!";
+        if (!schedules) {
+            scheduleList = "could not get schedules";
         } else {
-            bookList = books.map((book, k) =>
-                <BookCard book={book} key={k} />
+            scheduleList = schedules.map((schedule, k) =>
+                <ScheduleCard schedule={schedule} key={k} />
             );
         }
 
@@ -44,13 +43,10 @@ class ShowBookList extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <br />
-                            <h2 className="display-4 text-center">Current Fights</h2>
+                            <h2 className="display-4 text-center">Scheduled Fights</h2>
                         </div>
 
                         <div className="col-md-11">
-                            <Link to="/create-book" className="btn btn-outline-warning float-right">
-                                + Start New Forum
-                            </Link>
                             <br />
                             <br />
                             <hr />
@@ -59,7 +55,7 @@ class ShowBookList extends Component {
                     </div>
 
                     <div className="list">
-                        {bookList}
+                        {scheduleList}
                     </div>
                 </div>
             </div>
@@ -67,4 +63,4 @@ class ShowBookList extends Component {
     }
 }
 
-export default ShowBookList;
+export default Schedules;

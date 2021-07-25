@@ -36,7 +36,7 @@ class CreateBook extends Component {
         debugger
 
         axios
-            .post('http://localhost:8082/api/books', data)
+            .post('http://localhost:8082/api/fightFriend', data)
             .then(res => {
                 this.setState({
                     title: '',
