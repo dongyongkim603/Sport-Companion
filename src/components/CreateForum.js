@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../styles/App.css';
 import axios from 'axios';
+import FileUploader from './FileUploader';
 
-
-class CreateBook extends Component {
+class CreateForum extends Component {
     constructor() {
         super();
         this.state = {
             title: '',
-            isbn: '',
             author: '',
             description: '',
-            published_date: '',
-            publisher: ''
+            image_banner: ''
         };
     }
 
+    onUploadImage(img_url) {
+        console.log(img_url)
+        this.setState({
+            image_banner: img_url
+        })
+    }
+
+
     onChange = e => {
+        console.log(this.state)
         this.setState({ [e.target.name]: e.target.value });
     };
 
@@ -26,74 +33,57 @@ class CreateBook extends Component {
 
         const data = {
             title: this.state.title,
-            isbn: this.state.isbn,
             author: this.state.author,
             description: this.state.description,
-            published_date: this.state.published_date,
-            publisher: this.state.publisher
+            forum_banner: this.state.image_banner
         };
-
-        debugger
 
         axios
             .post('http://localhost:8082/api/fightFriend', data)
             .then(res => {
                 this.setState({
                     title: '',
-                    isbn: '',
                     author: '',
                     description: '',
-                    published_date: '',
-                    publisher: ''
+                    image_banner: ''
                 })
                 this.props.history.push('/');
             })
             .catch(err => {
-                debugger
-                console.error(`Error in CreateBook! ${err}`);
+                console.error(`Error in CreateForum! ${err}`);
             })
     };
 
     render() {
         return (
-            <div className="CreateBook">
+            <div className="CreateForum">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
                             <br />
-                            <Link to="/" className="btn btn-outline-warning float-left">
-                                Show BooK List
+                            <Link to="/" className="btn btn-outline-danger float-left" alt="show forums list">
+                                Show Forum List
                             </Link>
                         </div>
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Add Book</h1>
-                            <p className="lead text-center">
-                                Create new book
+                            <h1 className="display-4 text-center"><b>Add Forum</b></h1>
+                            <p className="lead text-center" alt="create new forum">
+                                Create new forum
                             </p>
 
                             <form noValidate onSubmit={this.onSubmit}>
                                 <div className='form-group'>
                                     <input
                                         type='text'
-                                        placeholder='Title of the Book'
+                                        placeholder='Title of the Forum'
                                         name='title'
                                         className='form-control'
                                         value={this.state.title}
                                         onChange={this.onChange}
+                                        alt="text area forum title"
                                     />
                                 </div>
                                 <br />
-
-                                <div className='form-group'>
-                                    <input
-                                        type='text'
-                                        placeholder='ISBN'
-                                        name='isbn'
-                                        className='form-control'
-                                        value={this.state.isbn}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
 
                                 <div className='form-group'>
                                     <input
@@ -103,44 +93,29 @@ class CreateBook extends Component {
                                         className='form-control'
                                         value={this.state.author}
                                         onChange={this.onChange}
+                                        alt="text area - author"
                                     />
                                 </div>
+
+                                <FileUploader changeImageUrl={this.onUploadImage.bind(this)} />
 
                                 <div className='form-group'>
                                     <input
                                         type='text'
-                                        placeholder='Describe this book'
+                                        placeholder='Describe this forum'
                                         name='description'
                                         className='form-control'
                                         value={this.state.description}
                                         onChange={this.onChange}
+                                        alt="text area add a disciption for the forum"
                                     />
                                 </div>
 
-                                <div className='form-group'>
-                                    <input
-                                        type='date'
-                                        placeholder='published_date'
-                                        name='published_date'
-                                        className='form-control'
-                                        value={this.state.published_date}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-                                <div className='form-group'>
-                                    <input
-                                        type='text'
-                                        placeholder='Publisher of this Book'
-                                        name='publisher'
-                                        className='form-control'
-                                        value={this.state.publisher}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
 
                                 <input
                                     type="submit"
-                                    className="btn btn-outline-warning btn-block mt-4"
+                                    className="btn btn-outline-danger btn-block mt-4"
+                                    alt="submit forum"
                                 />
                             </form>
                         </div>
@@ -151,4 +126,4 @@ class CreateBook extends Component {
     }
 }
 
-export default CreateBook;
+export default CreateForum;

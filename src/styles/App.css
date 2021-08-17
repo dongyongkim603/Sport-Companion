@@ -1,0 +1,132 @@
+:root {
+  --main-bg-color: #d20b0b;
+  --secondary-bg-color: #fafbfd;
+  --dark-bg-color: #18181c;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: var(--dark-bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--secondary-bg-color);
+}
+
+.App-link {
+  color: var(--main-bg-color);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.CreateForum {
+  background-color: var(--dark-bg-color);
+  min-height: 100vh;
+  color: var(--secondary-bg-color);
+}
+
+.image-place-holder {
+  max-height: 30rem;
+  max-width: 50rem;
+}
+
+.ShowForumDetails {
+  background-color: var(--dark-bg-color);
+  min-height: 100vh;
+  color: var(--secondary-bg-color);
+}
+
+.home-banner-container {
+  height: 15rem;
+  width: 45rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--main-bg-color);
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.home-banner {
+  height: 75%;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.UpdateForumInfo {
+  background-color: var(--dark-bg-color);
+  min-height: 100vh;
+  color: var(--secondary-bg-color);
+}
+
+.ShowForumList {
+  background-color: var(--dark-bg-color);
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100px;
+  color: var(--secondary-bg-color);
+}
+
+
+/* ForumList Styles */
+.list {
+  display: block;
+  margin: 20px 0 30px 0;
+}
+
+.card-container {
+  width: 100%;
+  border: 1px solid var(--dark-bg-color);
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.desc {
+  height: 100%;
+  width: 68%;
+  padding: 10px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.desc h2 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.desc h3, p {
+  font-weight: 300;
+}
+
+.desc h3 {
+  color: var(--main-bg-color);
+  font-size: 1em;
+  padding: 10px 0 10px 0;
+}
+

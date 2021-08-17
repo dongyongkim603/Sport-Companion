@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import '../styles/App.css';
 import axios from 'axios';
 
-class showBookDetails extends Component {
+class showForumDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            book: {}
+            forum: {}
         };
     }
 
     componentDidMount() {
-        debugger
         // console.log("Print id: " + this.props.match.params.id);
         axios
             .get('http://localhost:8082/api/fightFriend/' + this.props.match.params.id)
             .then(res => {
-                // console.log("Print-showBookDetails-API-response: " + res.data);
+                // console.log("Print-showForumDetails-API-response: " + res.data);
                 this.setState({
-                    book: res.data
+                    forum: res.data
                 })
             })
             .catch(err => {
-                console.log("Error from ShowBookDetails");
+                console.log("Error from ShowForumDetails");
             })
     };
 
@@ -34,15 +33,15 @@ class showBookDetails extends Component {
                 this.props.history.push("/");
             })
             .catch(err => {
-                console.log("Error form ShowBookDetails_deleteClick");
+                console.log("Error form ShowForumDetails_deleteClick");
             })
     };
 
 
     render() {
 
-        const book = this.state.book;
-        let BookItem = <div>
+        const forum = this.state.forum;
+        let ForumItem = <div>
             <table className="table table-hover table-dark">
                 {/* <thead>
           <tr>
@@ -56,76 +55,61 @@ class showBookDetails extends Component {
                     <tr>
                         <th scope="row">1</th>
                         <td>Title</td>
-                        <td>{book.title}</td>
+                        <td>{forum.title}</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Author</td>
-                        <td>{book.author}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>ISBN</td>
-                        <td>{book.isbn}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Publisher</td>
-                        <td>{book.publisher}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Published Date</td>
-                        <td>{book.published_date}</td>
+                        <td>{forum.author}</td>
                     </tr>
                     <tr>
                         <th scope="row">6</th>
                         <td>Description</td>
-                        <td>{book.description}</td>
+                        <td>{forum.description}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         return (
-            <div className="ShowBookDetails">
+            <div className="ShowForumDetails">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10 m-auto">
                             <br /> <br />
                             <Link to="/" className="btn btn-outline-warning float-left">
-                                Show Book List
+                                Show Forum List
                             </Link>
                         </div>
                         <br />
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Book's Record</h1>
+                            <h1 className="display-4 text-center">Forum's Record</h1>
                             <p className="lead text-center">
-                                View Book's Info
+                                View Forum's Info
                             </p>
                             <hr /> <br />
                         </div>
                     </div>
                     <div>
-                        {BookItem}
+                        {ForumItem}
                     </div>
 
                     <div className="row">
                         <div className="col-md-6">
-                            <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this, book._id)}>Delete Book</button><br />
+                            <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this, forum._id)}>Delete Forum</button><br />
                         </div>
 
                         <div className="col-md-6">
-                            <Link to={`/edit-book/${book._id}`} className="btn btn-outline-info btn-lg btn-block">
-                                Edit Book
+                            <Link to={`/edit-forum/${forum._id}`} className="btn btn-outline-info btn-lg btn-block">
+                                Edit Forum
                             </Link>
                             <br />
                         </div>
 
                     </div>
                     {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Book</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Book</button> */}
+            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Forum</button>
+            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Forum</button> */}
 
                 </div>
             </div>
@@ -133,4 +117,4 @@ class showBookDetails extends Component {
     }
 }
 
-export default showBookDetails;
+export default showForumDetails;
