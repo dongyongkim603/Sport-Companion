@@ -2,13 +2,25 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
 import axios from 'axios';
+import CommentCard from './CommentCard.js';
+import CreateComment from './CreateComment';
 
 class showForumDetails extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            forum: {}
+            forum: {},
+            comments: []
         };
+    }
+
+
+    onCreateComment(ForumId) {
+        console.log(ForumId)
+        this.setState({
+            image_banner: ForumId
+        })
     }
 
     componentDidMount() {
@@ -23,6 +35,13 @@ class showForumDetails extends Component {
             })
             .catch(err => {
                 console.log("Error from ShowForumDetails");
+            })
+        axios
+            .get('http://localhost:8082/api/fightFriend/get-comments')
+            .then(res => {
+                this.setState({
+                    comments: res.data
+                })
             })
     };
 
@@ -43,33 +62,32 @@ class showForumDetails extends Component {
         const forum = this.state.forum;
         let ForumItem = <div>
             <table className="table table-hover table-dark">
-                {/* <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead> */}
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
                         <td>Title</td>
                         <td>{forum.title}</td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
                         <td>Author</td>
                         <td>{forum.author}</td>
                     </tr>
                     <tr>
-                        <th scope="row">6</th>
                         <td>Description</td>
                         <td>{forum.description}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        const comments = this.state.comments;
+        let commentList;
+        if (!comments) {
+            commentList =<div><h4> "There are no comments yet! be the first to make a comment"</h4></div>;
+        } else {
+            commentList = comments.map((comment, k) =>
+                <CommentCard comment={comment} key={k} />
+            );
+        }
 
         return (
             <div className="ShowForumDetails">
@@ -83,10 +101,8 @@ class showForumDetails extends Component {
                         </div>
                         <br />
                         <div className="col-md-8 m-auto">
-                            <h1 className="display-4 text-center">Forum's Record</h1>
-                            <p className="lead text-center">
-                                View Forum's Info
-                            </p>
+                            <h1 className="display-4 text-center">{forum.title}</h1>
+                            <img src={forum.forum_banner} className="home-banner" />
                             <hr /> <br />
                         </div>
                     </div>
@@ -95,22 +111,30 @@ class showForumDetails extends Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-4">
                             <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this, forum._id)}>Delete Forum</button><br />
                         </div>
 
-                        <div className="col-md-6">
+                        <div className="col-md-4">
                             <Link to={`/edit-forum/${forum._id}`} className="btn btn-outline-info btn-lg btn-block">
                                 Edit Forum
                             </Link>
                             <br />
                         </div>
-
+                        <div className="col-md-4">
+                            <Link to={`/edit-forum/${forum._id}`} className="btn btn-outline-info btn-lg btn-block">
+                                Add Comment
+                            </Link>
+                            <br />
+                        </div>
                     </div>
-                    {/* <br />
-            <button type="button" class="btn btn-outline-info btn-lg btn-block">Edit Forum</button>
-            <button type="button" class="btn btn-outline-danger btn-lg btn-block">Delete Forum</button> */}
-
+                    <div>
+                        {commentList}
+                    </div>
+                    <CreateComment 
+                    forum_id={forum._id}
+                    history={this.props.history}
+                    />
                 </div>
             </div>
         );

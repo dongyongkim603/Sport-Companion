@@ -5,7 +5,7 @@ const NavigationBar = (props) => {
 
     return (
         <div className="col-md-11">
-            <Link to="/create-forum" className="btn btn-outline-danger float-right">
+            <Link to="/create-forum" className="btn btn-outline-danger">
                 + Start New Forum
             </Link>
             <br />

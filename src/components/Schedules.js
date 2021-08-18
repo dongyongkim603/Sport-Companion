@@ -13,7 +13,7 @@ class Schedules extends Component {
 
     componentDidMount() {
         axios
-            .get('http://localhost:8082/api/schedules')
+            .get('http://localhost:8082/api/fightFriend/schedules')
             .then(res => {
                 this.setState({
                     schedules: res.data
