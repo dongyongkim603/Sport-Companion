@@ -43,12 +43,12 @@ class ShowForumList extends Component {
             <div className="ShowForumList">
                 <div className="container">
                     <div className="row">
+                        <div className="home-banner-container">
+                            <img src={logo} className="home-banner"/>
+                        </div>
                         <div className="col-md-12">
                             <br />
                             <h2 className="display-4 text-center"><b>Current Fights</b></h2>
-                        </div>
-                        <div className="home-banner-container">
-                            <img src={logo} className="home-banner"/>
                         </div>
                         <NavigationBar />
 

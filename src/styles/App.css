@@ -2,6 +2,7 @@
   --main-bg-color: #d20b0b;
   --secondary-bg-color: #fafbfd;
   --dark-bg-color: #18181c;
+  --secondary-dark-color: #32383e;
 }
 
 .App {
@@ -56,14 +57,15 @@
 }
 
 .home-banner-container {
-  height: 15rem;
-  width: 45rem;
+  height: 35rem;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--main-bg-color);
+  background: linear-gradient(var(--main-bg-color), #a32727);
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  border-radius: 12px;
 }
 
 .home-banner {
@@ -100,19 +102,22 @@
   width: 100%;
   border: 1px solid var(--dark-bg-color);
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
+  background-color: var(--secondary-dark-color);
 }
 
 .desc {
   height: 100%;
   width: 68%;
-  padding: 10px;
+  padding: 20px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  background-color: var(--dark-bg-color);
+  border-radius: 12px;
 }
 
 .desc h2 {
@@ -130,3 +135,16 @@
   padding: 10px 0 10px 0;
 }
 
+.forum-container {
+  background-color: var(--secondary-dark-color);
+  padding: 15px;
+}
+
+.comment-container {
+  background-color: var(--secondary-dark-color);
+  padding: 15px;
+}
+
+.button-container {
+  padding-left: ;
+}

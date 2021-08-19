@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/App.css';
 import axios from 'axios';
 import FileUploader from './FileUploader';
+import { useHistory } from 'react-router'
 
 class CreateComment extends Component {
     constructor() {
@@ -51,7 +52,7 @@ class CreateComment extends Component {
         };
 
         axios
-            .post(`http://localhost:8082/api/fightFriend/create-comment`, data)
+            .post(`http://localhost:8082/api/comments/create-comment`, data)
             .then(res => {
                 this.setState({
                     author: '',
@@ -59,7 +60,9 @@ class CreateComment extends Component {
                     comment_banner: '',
                     forum_id: ''
                 })
+                this.props.history.push(`/show-forum`);
                 this.props.history.push(`/show-forum/${this.props.forum_id}`);
+
             })
             .catch(err => {
                 console.error(`Error in CreateComment! ${err}`);
@@ -68,19 +71,20 @@ class CreateComment extends Component {
 
     render() {
         return (
-            <div className="CreateForum">
+            <div className="CreateComment">
                 <div className="container">
                     <div className="row">
-                        <p className="lead text-center" alt="create new Comment">
+                        <p className="lead text-center" alt="Create new Comment">
                             Create new Comment
                         </p>
+                        <br />
                         <form noValidate onSubmit={this.onSubmit}>
                             <br />
 
                             <div className='form-group'>
                                 <input
                                     type='text'
-                                    placeholder='Author'
+                                    placeholder='Username'
                                     name='author'
                                     className='form-control'
                                     value={this.state.author}
@@ -94,7 +98,7 @@ class CreateComment extends Component {
                             <div className='form-group'>
                                 <input
                                     type='text'
-                                    placeholder='Body'
+                                    placeholder='Comment '
                                     name='body'
                                     className='form-control'
                                     value={this.state.body}

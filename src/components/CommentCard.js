@@ -7,17 +7,20 @@ const CommentCard = (props) => {
 
     return (
         <div className="card-container">
-            <div className="desc">
-                <div>
-                    <h2>
-                        Username: {comment.author}
-                    </h2>
-                    <p>Date Posted: {comment.post_date}</p>
+            <div className="comment-container">
+                <div className="desc">
+                    <div>
+                        <h2>
+                            Username: {comment.author}
+                        </h2>
+                        <p>Date Posted: {comment.post_date}</p>
+                    </div>
+                    <div>
+                        <p>{comment.body}</p>
+                    </div>
+                    <img src={comment.comment_banner} className="home-banner" />
                 </div>
-                <div>
-                    <p>{comment.body}</p>
-                </div>
-                <img src={comment.comment_banner} className="home-banner" />
+                <hr />
             </div>
         </div>
     )

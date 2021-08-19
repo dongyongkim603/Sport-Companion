@@ -24,7 +24,7 @@ class showForumDetails extends Component {
     }
 
     componentDidMount() {
-        // console.log("Print id: " + this.props.match.params.id);
+
         axios
             .get('http://localhost:8082/api/fightFriend/' + this.props.match.params.id)
             .then(res => {
@@ -36,8 +36,9 @@ class showForumDetails extends Component {
             .catch(err => {
                 console.log("Error from ShowForumDetails");
             })
+
         axios
-            .get('http://localhost:8082/api/fightFriend/get-comments')
+            .get(`http://localhost:8082/api/comments/${this.props.match.params.id}`)
             .then(res => {
                 this.setState({
                     comments: res.data
@@ -82,7 +83,7 @@ class showForumDetails extends Component {
         const comments = this.state.comments;
         let commentList;
         if (!comments) {
-            commentList =<div><h4> "There are no comments yet! be the first to make a comment"</h4></div>;
+            commentList = <div><h4> "There are no comments yet! be the first to make a comment"</h4></div>;
         } else {
             commentList = comments.map((comment, k) =>
                 <CommentCard comment={comment} key={k} />
@@ -128,13 +129,11 @@ class showForumDetails extends Component {
                             <br />
                         </div>
                     </div>
-                    <div>
-                        {commentList}
-                    </div>
-                    <CreateComment 
-                    forum_id={forum._id}
-                    history={this.props.history}
+                    <CreateComment
+                        forum_id={forum._id}
+                        history={this.props.history}
                     />
+                    {commentList}
                 </div>
             </div>
         );
