@@ -7,6 +7,7 @@ import ShowForumList from './components/ShowForumList';
 import ShowForumDetails from './components/ShowForumDetails';
 import UpdateForumInfo from './components/UpdateForumInfo';
 import Schedules from './components/Schedules';
+import Fighters from './components/Fighters';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path='/edit-forum/:id' component={UpdateForumInfo} />
           <Route path='/show-forum/:id' component={ShowForumDetails} />
           <Route path='/schedules' component={Schedules} />
+          <Route path='/fighters' component={Fighters} />
         </div>
       </Router>
     );

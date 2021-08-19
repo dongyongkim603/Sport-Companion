@@ -153,6 +153,6 @@
   margin: auto;
   width: 97%;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 15px;
 }

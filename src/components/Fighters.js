@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import axios from 'axios';
-import ScheduleCard from './ScheduleCard';
-import logo from './../resources/Ultimate-Fighting-Championship-Logo-2001-2015.png';
+import FighterCard from './FighterCard';
+import logo from './../resources/1000_F_287669297_jyKF7nGOczOnkSvXNxFzikGl2ppPCGPm.jpg';
 import NavigationBar from './NavigationBar';
 
 class Fighters extends Component {
@@ -17,7 +17,7 @@ class Fighters extends Component {
         const organization = window.location.pathname;
 
         axios
-            .get(`http://localhost:8082/api/fightFriend/Fighters`)
+            .get(`http://localhost:8082/api/SportsDataApi`)
             .then(res => {
                 this.setState({
                     fighters: res.data
@@ -29,19 +29,19 @@ class Fighters extends Component {
     };
 
     render() {
-        const schedules = this.state.schedules;
-        console.log("schedules: " + schedules);
-        let scheduleList;
+        const fighters = this.state.fighters;
+        console.log("fighters: " + fighters);
+        let fighters_list;
 
-        if (!schedules) {
-            scheduleList = "could not get schedules";
+        if (!fighters) {
+            fighters_list = "could not get fighter stats";
         } else {
-            scheduleList = schedules.map((schedule, k) =>
-                <ScheduleCard schedule={schedule} key={k} />
+            fighters_list = fighters.map((fighter, k) =>
+                <FighterCard fighter={fighter} key={k} />
             );
         }
 
-         
+
 
         return (
             <div className="ShowForumList">
@@ -52,7 +52,7 @@ class Fighters extends Component {
                         </div>
                         <div className="col-md-12">
                             <br />
-                            <h2 className="display-4 text-center">Scheduled Fights</h2>
+                            <h2 className="display-4 text-center">Fighter Statistics</h2>
                         </div>
                         <NavigationBar />
 
@@ -65,7 +65,7 @@ class Fighters extends Component {
                     </div>
 
                     <div className="list">
-                        {scheduleList}
+                        {fighters_list}
                     </div>
                 </div>
             </div>

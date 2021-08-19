@@ -12,22 +12,17 @@ const NavigationBar = (props) => {
             </div>
             <div className="button-container">
                 <Link to="/schedules/ufc" className="btn btn-light btn-lg float-right">
-                    UFC
+                    UFC Schedule
                 </Link>
             </div>
             <div className="button-container">
-                <Link to="/schedules/bellator" className="btn btn-light btn-lg float-right">
-                    Bellator
+                <Link to="/fighters" className="btn btn-light btn-lg float-right">
+                    Fighter Stats
                 </Link>
             </div>
             <div className="button-container">
-                <Link to="/schedules/onefc" className="btn btn-light btn-lg float-right">
-                    ONE FC
-                </Link>
-            </div>
-            <div className="button-container">
-                <Link to="/schedules/pfl" className="btn btn-light btn-lg float-right">
-                    PFL
+                <Link to="/" className="btn btn-warning btn-lg float-right">
+                    All Forums
                 </Link>
             </div>
             <br />
