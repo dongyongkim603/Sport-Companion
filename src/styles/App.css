@@ -135,6 +135,36 @@
   padding: 10px 0 10px 0;
 }
 
+/*---------------------------------------*/
+
+.comment-desc {
+  height: 100%;
+  width: 68%;
+  padding: 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  background-color: var(--dark-bg-color);
+  border-radius: 12px;
+}
+
+.comment-desc h2 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.comment-desc h3, p {
+  font-weight: 300;
+}
+
+.comment-desc h3 {
+  color: var(--main-bg-color);
+  font-size: 1em;
+  padding: 10px 0 10px 0;
+}
+
 .forum-container {
   background-color: var(--secondary-dark-color);
   padding: 15px;
@@ -155,4 +185,20 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 15px;
+}
+
+.create-comment {
+  width: 100%;
+  padding: 5rem;
+  margin: auto;
+}
+
+.center-box {
+  margin: auto;
+  display: block;
+}
+
+.like-button {
+  width: 40px;
+  height: 40px;
 }

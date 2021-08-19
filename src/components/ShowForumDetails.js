@@ -4,6 +4,7 @@ import '../styles/App.css';
 import axios from 'axios';
 import CommentCard from './CommentCard.js';
 import CreateComment from './CreateComment';
+import NavigationBar from './NavigationBar';
 
 class showForumDetails extends Component {
     constructor(props) {
@@ -96,9 +97,7 @@ class showForumDetails extends Component {
                     <div className="row">
                         <div className="col-md-10 m-auto">
                             <br /> <br />
-                            <Link to="/" className="btn btn-outline-warning float-left">
-                                Show Forum List
-                            </Link>
+                            <NavigationBar />
                         </div>
                         <br />
                         <div className="col-md-8 m-auto">
@@ -112,19 +111,13 @@ class showForumDetails extends Component {
                     </div>
 
                     <div className="row">
-                        <div className="col-md-4">
+                        <div className="col-md-6">
                             <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this, forum._id)}>Delete Forum</button><br />
                         </div>
 
-                        <div className="col-md-4">
+                        <div className="col-md-6">
                             <Link to={`/edit-forum/${forum._id}`} className="btn btn-outline-info btn-lg btn-block">
                                 Edit Forum
-                            </Link>
-                            <br />
-                        </div>
-                        <div className="col-md-4">
-                            <Link to={`/edit-forum/${forum._id}`} className="btn btn-outline-info btn-lg btn-block">
-                                Add Comment
                             </Link>
                             <br />
                         </div>

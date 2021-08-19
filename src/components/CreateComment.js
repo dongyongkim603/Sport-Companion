@@ -42,13 +42,18 @@ class CreateComment extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        console.log(this.props.history)
+        let forum_path = this.props.history.location.pathname
+            .substring(("/show-forum/".length),
+                this.props.history.location.pathname.length);
+
+        console.log(forum_path)
 
         const data = {
             author: this.state.author,
             body: this.state.body,
             comment_banner: this.state.image_banner,
-            forum_id: this.state.forum_id
+            forum_id: forum_path,
+            likes: 0
         };
 
         axios
@@ -58,7 +63,8 @@ class CreateComment extends Component {
                     author: '',
                     body: '',
                     comment_banner: '',
-                    forum_id: ''
+                    forum_id: '',
+                    likes: 0
                 })
                 this.props.history.push(`/show-forum`);
                 this.props.history.push(`/show-forum/${this.props.forum_id}`);
@@ -71,50 +77,49 @@ class CreateComment extends Component {
 
     render() {
         return (
-            <div className="CreateComment">
+            <div className="create-comment">
                 <div className="container">
-                    <div className="row">
-                        <p className="lead text-center" alt="Create new Comment">
-                            Create new Comment
-                        </p>
+                    <p className="lead text-center" alt="Create new Comment">
+                        Create new Comment
+                    </p>
+                    <br />
+                    <form noValidate onSubmit={this.onSubmit}>
                         <br />
-                        <form noValidate onSubmit={this.onSubmit}>
-                            <br />
 
-                            <div className='form-group'>
-                                <input
-                                    type='text'
-                                    placeholder='Username'
-                                    name='author'
-                                    className='form-control'
-                                    value={this.state.author}
-                                    onChange={this.onChange}
-                                    alt="text area - author"
-                                />
-                            </div>
-
-                            <FileUploader changeImageUrl={this.onUploadImage.bind(this)} />
-
-                            <div className='form-group'>
-                                <input
-                                    type='text'
-                                    placeholder='Comment '
-                                    name='body'
-                                    className='form-control'
-                                    value={this.state.body}
-                                    onChange={this.onChange}
-                                    alt="text area add a disciption for the Comment"
-                                />
-                            </div>
-
-
+                        <div className='form-group'>
                             <input
-                                type="submit"
-                                className="btn btn-outline-danger btn-block mt-4"
-                                alt="submit Comment"
+                                type='text'
+                                placeholder='Username'
+                                name='author'
+                                className='form-control'
+                                value={this.state.author}
+                                onChange={this.onChange}
+                                alt="text area - author"
                             />
-                        </form>
-                    </div>
+                        </div>
+                        <div className="center-box">
+                            <FileUploader changeImageUrl={this.onUploadImage.bind(this)} />
+                        </div>
+                        <div className='form-group'>
+                            <input
+                                type='text'
+                                placeholder='Comment '
+                                name='body'
+                                className='form-control-lg'
+                                value={this.state.body}
+                                onChange={this.onChange}
+                                alt="text area add a disciption for the Comment"
+                            />
+                        </div>
+
+
+                        <input
+                            type="submit"
+                            className="btn btn-outline-danger btn-block mt-4"
+                            alt="submit Comment"
+                        />
+                    </form>
+
                 </div>
             </div>
         );
