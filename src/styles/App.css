@@ -146,5 +146,13 @@
 }
 
 .button-container {
-  padding-left: ;
+  padding: 10px;
+}
+
+.navigation-container {
+  margin: auto;
+  width: 97%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 15px;
 }

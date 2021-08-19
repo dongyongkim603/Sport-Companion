@@ -48,7 +48,7 @@ class ShowForumList extends Component {
                         </div>
                         <div className="col-md-12">
                             <br />
-                            <h2 className="display-4 text-center"><b>Current Fights</b></h2>
+                            <h2 className="display-4 text-center"><b>All Forums</b></h2>
                         </div>
                         <NavigationBar />
 

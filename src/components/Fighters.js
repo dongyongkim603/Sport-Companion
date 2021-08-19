@@ -5,11 +5,11 @@ import ScheduleCard from './ScheduleCard';
 import logo from './../resources/Ultimate-Fighting-Championship-Logo-2001-2015.png';
 import NavigationBar from './NavigationBar';
 
-class Schedules extends Component {
+class Fighters extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            schedules: []
+            fighters: []
         };
     }
 
@@ -17,10 +17,10 @@ class Schedules extends Component {
         const organization = window.location.pathname;
 
         axios
-            .get(`http://localhost:8082/api/sportsDataApi${organization}`)
+            .get(`http://localhost:8082/api/fightFriend/Fighters`)
             .then(res => {
                 this.setState({
-                    schedules: res.data
+                    fighters: res.data
                 })
             })
             .catch(err => {
@@ -73,4 +73,4 @@ class Schedules extends Component {
     }
 }
 
-export default Schedules;
+export default Fighters;

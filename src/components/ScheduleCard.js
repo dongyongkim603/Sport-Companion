@@ -5,9 +5,12 @@ const ScheduleCard = (props) => {
     const schedule = props.schedule;
     return (
         <div className="card-container">
-            <div className="desc">
-                <h3>{schedule.Name}</h3>
-                <p>{schedule.DateTime}</p>
+            <div className="forum-container">
+                <div className="desc">
+                    <h3>Event Name: {schedule.Name}</h3>
+                    <p>Date: {schedule.DateTime}</p>
+                    <p>Booking Status: {schedule.Status}</p>
+                </div>
             </div>
         </div>
     )
