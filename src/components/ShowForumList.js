@@ -43,6 +43,9 @@ class ShowForumList extends Component {
             <div className="ShowForumList">
                 <div className="container">
                     <div className="row">
+                    <NavigationBar
+                        page={"forum"}
+                    />
                         <div className="home-banner-container">
                             <img src={logo} className="home-banner"/>
                         </div>
@@ -50,7 +53,6 @@ class ShowForumList extends Component {
                             <br />
                             <h2 className="display-4 text-center"><b>All Forums</b></h2>
                         </div>
-                        <NavigationBar />
 
                     </div>
 

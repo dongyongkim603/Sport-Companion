@@ -47,6 +47,9 @@ class Schedules extends Component {
             <div className="ShowForumList">
                 <div className="container">
                     <div className="row">
+                    <NavigationBar
+                        page={"schedule"}
+                    />
                         <div className="home-banner-container">
                             <img src={logo} className="home-banner" />
                         </div>
@@ -54,8 +57,6 @@ class Schedules extends Component {
                             <br />
                             <h2 className="display-4 text-center">Scheduled Fights</h2>
                         </div>
-                        <NavigationBar />
-
                         <div className="col-md-11">
                             <br />
                             <br />

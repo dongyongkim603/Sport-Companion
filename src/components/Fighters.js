@@ -47,6 +47,9 @@ class Fighters extends Component {
             <div className="ShowForumList">
                 <div className="container">
                     <div className="row">
+                        <NavigationBar
+                            page={"fighter"}
+                        />
                         <div className="home-banner-container">
                             <img src={logo} className="home-banner" />
                         </div>
@@ -54,8 +57,6 @@ class Fighters extends Component {
                             <br />
                             <h2 className="display-4 text-center">Fighter Statistics</h2>
                         </div>
-                        <NavigationBar />
-
                         <div className="col-md-11">
                             <br />
                             <br />

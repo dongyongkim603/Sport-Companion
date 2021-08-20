@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/App.css';
 import axios from 'axios';
 import FileUploader from './FileUploader';
+import NavigationBar from './NavigationBar';
 
 class CreateForum extends Component {
     constructor() {
@@ -59,17 +60,12 @@ class CreateForum extends Component {
             <div className="CreateForum">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <br />
-                            <Link to="/" className="btn btn-outline-danger float-left" alt="show forums list">
-                                Show Forum List
-                            </Link>
-                        </div>
+                        <NavigationBar
+                        page={"create"}
+                        />
                         <div className="col-md-8 m-auto">
                             <h1 className="display-4 text-center"><b>Add Forum</b></h1>
-                            <p className="lead text-center" alt="create new forum">
-                                Create new forum
-                            </p>
+                            <hr/>
 
                             <form noValidate onSubmit={this.onSubmit}>
                                 <div className='form-group'>
@@ -88,7 +84,7 @@ class CreateForum extends Component {
                                 <div className='form-group'>
                                     <input
                                         type='text'
-                                        placeholder='Author'
+                                        placeholder='Username'
                                         name='author'
                                         className='form-control'
                                         value={this.state.author}

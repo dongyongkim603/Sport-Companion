@@ -213,6 +213,7 @@
   margin-right: auto;
   padding: 1rem;
   text-align: center;
+  background-color: var(--secondary-dark-color);
 }
 
 .image-box {
