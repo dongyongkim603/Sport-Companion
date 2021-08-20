@@ -23,22 +23,24 @@ class FileUploader extends Component {
     render() {
         const { placeholder_img } = this.state
         return (
-            <div className="image-upload-container">
-                <div className="image-place-holder">
-                    <img src={placeholder_img}
-                        alt="area to add image"
-                        id="img"
-                        className="img" />
-                </div>
-                <input type="file"
-                    name="image-upload"
-                    onChange={this.imageHandler}
-                    id="input"
-                    accept="image/*" />
-                <div className="label">
-                    <label htmlFor="input" className="image-upload">
+            <div className="image-container">
+                <div className="image-box">
+                    <div className="image-place-holder">
+                        <img src={placeholder_img}
+                            alt="area to add image"
+                            id="img"
+                            className="img" />
+                    </div>
+                    <input type="file"
+                        name="image-upload"
+                        onChange={this.imageHandler}
+                        id="input"
+                        accept="image/*" />
+                    <div className="label">
+                        <label htmlFor="input" className="image-upload">
 
-                    </label>
+                        </label>
+                    </div>
                 </div>
             </div>
         )

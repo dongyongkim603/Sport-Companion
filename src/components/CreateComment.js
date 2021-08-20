@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/App.css';
 import axios from 'axios';
 import FileUploader from './FileUploader';
-import { useHistory } from 'react-router'
 
 class CreateComment extends Component {
     constructor() {
@@ -105,7 +103,7 @@ class CreateComment extends Component {
                                 type='text'
                                 placeholder='Comment '
                                 name='body'
-                                className='form-control-lg'
+                                className='form-control'
                                 value={this.state.body}
                                 onChange={this.onChange}
                                 alt="text area add a disciption for the Comment"

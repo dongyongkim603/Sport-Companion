@@ -70,7 +70,7 @@ class showForumDetails extends Component {
                         <td>{forum.title}</td>
                     </tr>
                     <tr>
-                        <td>Author</td>
+                        <td>Forum Creator</td>
                         <td>{forum.author}</td>
                     </tr>
                     <tr>
