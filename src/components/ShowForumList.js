@@ -15,7 +15,7 @@ class ShowForumList extends Component {
 
     componentDidMount() {
         axios
-            .get('http://localhost:8082/api/fightFriend')
+            .get('http://d18a651cad22.ngrok.io/api/fightFriend')
             .then(res => {
                 this.setState({
                     forums: res.data
@@ -43,11 +43,11 @@ class ShowForumList extends Component {
             <div className="ShowForumList">
                 <div className="container">
                     <div className="row">
-                    <NavigationBar
-                        page={"forum"}
-                    />
+                        <NavigationBar
+                            page={"forum"}
+                        />
                         <div className="home-banner-container">
-                            <img src={logo} className="home-banner"/>
+                            <img src={logo} className="home-banner" />
                         </div>
                         <div className="col-md-12">
                             <br />

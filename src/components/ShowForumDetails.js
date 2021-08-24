@@ -27,7 +27,7 @@ class showForumDetails extends Component {
     componentDidMount() {
 
         axios
-            .get('http://localhost:8082/api/fightFriend/' + this.props.match.params.id)
+            .get('http://d18a651cad22.ngrok.io/api/fightFriend/' + this.props.match.params.id)
             .then(res => {
                 // console.log("Print-showForumDetails-API-response: " + res.data);
                 this.setState({
@@ -39,7 +39,7 @@ class showForumDetails extends Component {
             })
 
         axios
-            .get(`http://localhost:8082/api/comments/${this.props.match.params.id}`)
+            .get(`http://d18a651cad22.ngrok.io/api/comments/${this.props.match.params.id}`)
             .then(res => {
                 this.setState({
                     comments: res.data
@@ -49,7 +49,7 @@ class showForumDetails extends Component {
 
     onDeleteClick(id) {
         axios
-            .delete('http://localhost:8082/api/fightFriend/' + id)
+            .delete('http://d18a651cad22.ngrok.io/api/fightFriend/' + id)
             .then(res => {
                 this.props.history.push("/");
             })

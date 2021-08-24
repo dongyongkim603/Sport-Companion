@@ -55,7 +55,7 @@ class CreateComment extends Component {
         };
 
         axios
-            .post(`http://localhost:8082/api/comments/create-comment`, data)
+            .post(`http://d18a651cad22.ngrok.io/api/comments/create-comment`, data)
             .then(res => {
                 this.setState({
                     author: '',

@@ -17,7 +17,7 @@ class Schedules extends Component {
         const organization = window.location.pathname;
 
         axios
-            .get(`http://localhost:8082/api/sportsDataApi${organization}`)
+            .get(`http://d18a651cad22.ngrok.io/api/sportsDataApi${organization}`)
             .then(res => {
                 this.setState({
                     schedules: res.data
@@ -41,15 +41,15 @@ class Schedules extends Component {
             );
         }
 
-         
+
 
         return (
             <div className="ShowForumList">
                 <div className="container">
                     <div className="row">
-                    <NavigationBar
-                        page={"schedule"}
-                    />
+                        <NavigationBar
+                            page={"schedule"}
+                        />
                         <div className="home-banner-container">
                             <img src={logo} className="home-banner" />
                         </div>

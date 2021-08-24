@@ -15,7 +15,7 @@ class UpdateForumInfo extends Component {
 
     componentDidMount() {
         axios
-            .get('http://localhost:8082/api/fightFriend/' + this.props.match.params.id)
+            .get('http://d18a651cad22.ngrok.io/api/fightFriend/' + this.props.match.params.id)
             .then(res => {
                 this.setState({
                     title: res.data.title,
@@ -42,7 +42,7 @@ class UpdateForumInfo extends Component {
         };
 
         axios
-            .put('http://localhost:8082/api/fightFriend/' + this.props.match.params.id, data)
+            .put('http://d18a651cad22.ngrok.io/api/fightFriend/' + this.props.match.params.id, data)
             .then(res => {
                 this.props.history.push('/show-forum/' + this.props.match.params.id);
             })

@@ -40,7 +40,7 @@ class CreateForum extends Component {
         };
 
         axios
-            .post('http://localhost:8082/api/fightFriend', data)
+            .post('http://d18a651cad22.ngrok.io/api/fightFriend', data)
             .then(res => {
                 this.setState({
                     title: '',
@@ -61,11 +61,11 @@ class CreateForum extends Component {
                 <div className="container">
                     <div className="row">
                         <NavigationBar
-                        page={"create"}
+                            page={"create"}
                         />
                         <div className="col-md-8 m-auto">
                             <h1 className="display-4 text-center"><b>Add Forum</b></h1>
-                            <hr/>
+                            <hr />
 
                             <form noValidate onSubmit={this.onSubmit}>
                                 <div className='form-group'>

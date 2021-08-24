@@ -30,12 +30,12 @@ class CommentCard extends Component {
         console.log(this.props.comment._id)
 
         axios
-            .put(`http://localhost:8082/api/comments/${this.props.comment._id}`, data)
+            .put(`http://d18a651cad22.ngrok.io/api/comments/${this.props.comment._id}`, data)
             .then(res => {
                 console.log(res)
             })
             .catch(err => {
-                console.error(err+"Error in updating likes!");
+                console.error(err + "Error in updating likes!");
             })
 
         this.setState({

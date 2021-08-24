@@ -17,7 +17,7 @@ class Fighters extends Component {
         const organization = window.location.pathname;
 
         axios
-            .get(`http://localhost:8082/api/SportsDataApi`)
+            .get(`http://d18a651cad22.ngrok.io/api/SportsDataApi`)
             .then(res => {
                 this.setState({
                     fighters: res.data
